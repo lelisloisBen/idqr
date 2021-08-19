@@ -14,10 +14,10 @@ CORS(app)
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
-@app.route('/test')
+@app.route('/simple_id')
 def test():
     # s = "https://media.wtsp.com/assets/WTSP/images/44cc5ccd-21ee-472f-b1db-37503c9a7a9d/44cc5ccd-21ee-472f-b1db-37503c9a7a9d_1920x1080.jpg" #String which represents the QR code
-    s = "http://192.168.0.152:3000/info"
+    s = "https://qrcodeidbackend.herokuapp.com/info"
     url = pyqrcode.create(s) # Generate QR code
     url.png('../qrcodes/myqr.png', scale = 6) #Heroku path
     # url.png('qrcodes/myqr.png', scale = 6)
