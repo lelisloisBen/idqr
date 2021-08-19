@@ -28,11 +28,11 @@ def test():
 def info():
     return "<div><ul>\
             <li><b>First Name: </b>Robert</li>\
-            <li><b>Last Name: </b>Bob</li><li>\
+            <li><b>Last Name: </b>Bob</li>\
             <li><b>Birth date: </b>12/02/1965</li>\
-            <li><b>Age: </b>68 years old</li><li>\
+            <li><b>Age: </b>68 years old</li>\
             <li><b>Address: </b>1230 Collins Avenue, Miami Beach 33139 Florida</li>\
-            <li><b>SSN: </b>123-45-6789</li><li>\
+            <li><b>SSN: </b>123-45-6789</li>\
             </ul></div>"
 
 @app.route('/')
