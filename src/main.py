@@ -18,7 +18,7 @@ def handle_invalid_usage(error):
 def test():
     s = "https://media.wtsp.com/assets/WTSP/images/44cc5ccd-21ee-472f-b1db-37503c9a7a9d/44cc5ccd-21ee-472f-b1db-37503c9a7a9d_1920x1080.jpg" #String which represents the QR code
     url = pyqrcode.create(s) # Generate QR code
-    url.png('qrcodes/myqr.png', scale = 6) # Create and save the png file naming "myqr.png"
+    url.png('../qrcodes/myqr.png', scale = 6) # Create and save the png file naming "myqr.png"
     filename = '../qrcodes/myqr.png'
     return send_file(filename, mimetype='image/png')
 
