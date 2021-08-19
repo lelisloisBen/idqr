@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from utils import APIException
 import os
-import qrcode
-from PIL import Image
+import pyqrcode
+import png
+from pyqrcode import QRCode
 
 app = Flask(__name__)
 CORS(app)
@@ -15,8 +16,21 @@ def handle_invalid_usage(error):
 
 @app.route('/test')
 def test():
-    img = qrcode.make('Your input text')
-    return img
+    # String which represents the QR code
+    s = "www.geeksforgeeks.org"
+    
+    # Generate QR code
+    url = pyqrcode.create(s)
+    
+    # Create and save the svg file naming "myqr.svg"
+    # url.svg("myqr.svg", scale = 8)
+    
+    # Create and save the png file naming "myqr.png"
+    url.png('myqr.png', scale = 6)
+
+    # return str(url)
+    #  filename = 'sid.png'
+    return send_file(url, mimetype='image/png')
 
 @app.route('/')
 def hello_world():
