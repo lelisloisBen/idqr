@@ -16,11 +16,24 @@ def handle_invalid_usage(error):
 
 @app.route('/test')
 def test():
-    s = "https://media.wtsp.com/assets/WTSP/images/44cc5ccd-21ee-472f-b1db-37503c9a7a9d/44cc5ccd-21ee-472f-b1db-37503c9a7a9d_1920x1080.jpg" #String which represents the QR code
+    # s = "https://media.wtsp.com/assets/WTSP/images/44cc5ccd-21ee-472f-b1db-37503c9a7a9d/44cc5ccd-21ee-472f-b1db-37503c9a7a9d_1920x1080.jpg" #String which represents the QR code
+    s = "http://192.168.0.152:3000/info"
     url = pyqrcode.create(s) # Generate QR code
-    url.png('../qrcodes/myqr.png', scale = 6) # Create and save the png file naming "myqr.png"
+    url.png('../qrcodes/myqr.png', scale = 6) #Heroku path
+    # url.png('qrcodes/myqr.png', scale = 6)
     filename = '../qrcodes/myqr.png'
     return send_file(filename, mimetype='image/png')
+
+@app.route('/info')
+def info():
+    return "<div><ul>\
+            <li><b>First Name: </b>Robert</li>\
+            <li><b>Last Name: </b>Bob</li><li>\
+            <li><b>Birth date: </b>12/02/1965</li>\
+            <li><b>Age: </b>68 years old</li><li>\
+            <li><b>Address: </b>1230 Collins Avenue, Miami Beach 33139 Florida</li>\
+            <li><b>SSN: </b>123-45-6789</li><li>\
+            </ul></div>"
 
 @app.route('/')
 def hello_world():
