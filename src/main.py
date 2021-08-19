@@ -16,29 +16,11 @@ def handle_invalid_usage(error):
 
 @app.route('/test')
 def test():
-    # String which represents the QR code
-    s = "www.geeksforgeeks.org"
-    
-    # Generate QR code
-    url = pyqrcode.create(s)
-    
-    # Create and save the svg file naming "myqr.svg"
-    # url.svg("myqr.svg", scale = 8)
-    
-    # Create and save the png file naming "myqr.png"
-    url.png('myqr.png', scale = 6)
-
-    # return str(url)
-    #  filename = 'sid.png'
-    # return send_file(url, mimetype='image/png')
-
-    return send_from_directory(
-    '/Users/samirbenzada/Desktop/idqr/',
-    'myqr.png',
-    as_attachment=True,
-    attachment_filename='myqr.png',
-    mimetype='image/png'
- )
+    s = "hello samir" #String which represents the QR code
+    url = pyqrcode.create(s) # Generate QR code
+    url.png('qrcodes/myqr.png', scale = 6) # Create and save the png file naming "myqr.png"
+    filename = '../qrcodes/myqr.png'
+    return send_file(filename, mimetype='image/png')
 
 @app.route('/')
 def hello_world():
