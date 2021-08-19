@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file,send_from_directory
 from flask_cors import CORS
 from utils import APIException
 import os
@@ -30,7 +30,15 @@ def test():
 
     # return str(url)
     #  filename = 'sid.png'
-    return send_file(url, mimetype='image/png')
+    # return send_file(url, mimetype='image/png')
+
+    return send_from_directory(
+    '/Users/samirbenzada/Desktop/idqr/',
+    'myqr.png',
+    as_attachment=True,
+    attachment_filename='myqr.png',
+    mimetype='image/png'
+ )
 
 @app.route('/')
 def hello_world():
