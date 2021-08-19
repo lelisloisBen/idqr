@@ -13,7 +13,7 @@ def handle_invalid_usage(error):
 
 @app.route('/')
 def hello_world():
-    return "<div style='text-align: center; background-color: black'><h1>Backend running...</h1><br/><h3>Welcome back samir</h3><img src='https://www.incimages.com/uploaded_files/image/1920x1080/getty_178851317_308926.jpg' width='80%' /></div>"
+    return "<div style='text-align: center'><h1>Backend running...</h1><img src='https://www.incimages.com/uploaded_files/image/1920x1080/getty_178851317_308926.jpg' width='80%' /></div>"
 
 
 # this only runs if `$ python src/main.py` is executed
